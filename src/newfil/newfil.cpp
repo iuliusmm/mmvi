@@ -1,6 +1,8 @@
 #include"newfil.hpp"
 
 #include<cstdlib>
+#include<cerrno>
+#include<cstring>
 #include<fstream>
 #include<filesystem>
 #include<experimental/filesystem>
@@ -9,9 +11,6 @@
 #include<argtable3.h>
 #include<fmt/format.h>
 #include<fmt/ostream.h>
-
-#include <cerrno>
-#include <cstdio>
 
 int create_file(int overwrite, int verbose, const char **file, int nfile) {
 	int exitcode = EXIT_SUCCESS;
