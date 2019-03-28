@@ -24,6 +24,7 @@ int main(int argc, char **argv) {
 		fmt::print("{}: insufficient memory\n", program_name);
 		//deallocate each non-null entry in argtable[]
 		arg_freetable(argtable, sizeof(argtable) / sizeof(argtable[0]));
+		// Program will always exit with a status code indicating failure
 		return EXIT_FAILURE;
 	}
 
@@ -40,6 +41,7 @@ int main(int argc, char **argv) {
 
 		//deallocate each non-null entry in argtable[]
 		arg_freetable(argtable, sizeof(argtable) / sizeof(argtable[0]));
+		// Program will always exit with a status code indicating failure
 		return EXIT_FAILURE;
 	}
 
@@ -49,6 +51,7 @@ int main(int argc, char **argv) {
 		fmt::print("Copyright (C) 2019 Julius Behrens. All rights reserved.\n");
 		//deallocate each non-null entry in argtable[]
 		arg_freetable(argtable, sizeof(argtable) / sizeof(argtable[0]));
+		// Program will always exit with a status code indicating failure
 		return EXIT_FAILURE;
 	}
 
@@ -59,6 +62,7 @@ int main(int argc, char **argv) {
 		fmt::print(stderr, "Try '{} --help' for more information.\n", program_name);
 		//deallocate each non-null entry in argtable[]
 		arg_freetable(argtable, sizeof(argtable) / sizeof(argtable[0]));
+		// Program will always exit with a status code indicating failure
 		return EXIT_FAILURE;
 	}
 
