@@ -23,7 +23,7 @@ exit_code_t create_directory(int parents, int verbose, const char **directory, i
 		if (parents > 0) {
 			std::error_code error_code;
 			if (!std::filesystem::create_directories(directory[i], error_code)) {
-				fmt::print(stderr, "{}: cannot create directory '{}': {}\n", program_name, directory[i], error_code.message());
+				fmt::print(stderr, "{}: cannot create directory '{}': {}", program_name, directory[i], error_code.message());
 				exit_code = EXIT_FAILURE;
 				continue;
 			}
@@ -31,7 +31,7 @@ exit_code_t create_directory(int parents, int verbose, const char **directory, i
 		else {
 			std::error_code error_code;
 			if (!std::filesystem::create_directory(directory[i], error_code)) {
-				fmt::print(stderr, "{}: cannot create directory '{}': {}\n", program_name, directory[i], error_code.message());
+				fmt::print(stderr, "{}: cannot create directory '{}': {}", program_name, directory[i], error_code.message());
 				exit_code = EXIT_FAILURE;
 				continue;
 			}
