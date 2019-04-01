@@ -17,7 +17,7 @@ exit_code_t create_temporary_file() {
 	exit_code_t exit_code = EXIT_SUCCESS;;
 	std::string temporary_file_name = std::tmpnam(nullptr);
 	std::ofstream temporary_file;
-	temporary_file.open(temporary_file_name, std::ios::out, std::ios::trunc);
+	temporary_file.open(temporary_file_name, std::ios::out | std::ios::trunc);
 	temporary_file << "";
 	if (!temporary_file.good()) {
 		fmt::print(stderr, "{}: cannot create temporary file\n", program_name);
