@@ -16,7 +16,7 @@ exit_code_t create_file(int overwrite, int verbose, const char **file, int nfile
 	std::ofstream f;
 	for (int i = 0; i < nfile; ++i) {
 		if (overwrite > 0) {
-			f.open(file[i], std::ios::out, std::ios::trunc);
+			f.open(file[i], std::ios::out | std::ios::trunc);
 			f << "";
 			if (!f.good()) {
 				fmt::print(stderr, "{}: cannot create file '{}': {}\n", program_name, file[i], strerror(errno));
