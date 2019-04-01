@@ -28,7 +28,7 @@ exit_code_t move(int verbose, const char *source, const char *destination) {
 		std::filesystem::rename(source, destination / std::filesystem::path(source).filename(), error_code);
 		if (error_code) {
 			fmt::print(stderr, "{}: cannot move '{}' to '{}': {}", program_name, source, destination, error_code.message());
-			exit_code = EXIT_FAILURE;
+			return EXIT_FAILURE;
 		}
 
 		if (verbose > 0) {
@@ -76,7 +76,7 @@ int main(int argc, char **argv) {
 	if (help->count > 0) {
 		fmt::print("Usage: {}", program_name);
 		arg_print_syntax(stdout, argtable, "\n");
-		fmt::print("Rename SOURCE to DESTINATION, or move SOURCE(s) to DESTINATION.\n\n");
+		fmt::print("Rename or move SOURCE to DESTINATION.\n\n");
 		arg_print_glossary(stdout, argtable, "  %-20s %s\n");
 		fmt::print("\nCopyright (C) 2019 Julius Behrens. All rights reserved.\n");
 
